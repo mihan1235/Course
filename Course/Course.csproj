@@ -93,5 +93,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grammar\Grammar.csproj">
+      <Project>{d2923984-59c7-43d6-8009-33442f87bdc6}</Project>
+      <Name>Grammar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Volter2\Volter2.csproj">
+      <Project>{6ff8949b-df1b-473c-a0ae-f72fc43293e3}</Project>
+      <Name>Volter2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
