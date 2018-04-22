@@ -2,7 +2,7 @@ grammar function;
 
 options
 {
-	language = CSharp2; 
+	language = CSharp2;
 }
 //@parser::namespace { Generated }
 //@lexer::namespace  { Generated }
@@ -14,14 +14,23 @@ options
 function	:	expr | EOF;
 
 expr	:	'('expr')'
-		|	expr (MUL | DIV) expr
-		|	<assoc=right> expr (POW) expr
-		|	expr (ADD | SUB) expr
+		|	<assoc=right> expr pow expr
+		|	expr mul expr
+		|	expr div expr
+		|	expr add expr
+		|	expr sub expr
 		|	math_func
-		|	VALUE
+		|	value
 		|	VAR;
 		
 skip: ;
+
+mul: '*';
+div: '/';
+pow: '^';
+add: '+';
+sub: '-';
+value: INT | FLOAT | PI;
 
 
 math_func	:	cos
@@ -44,7 +53,7 @@ cos: 'cos' '(' expr ')';
 sin: 'sin' '('expr')';
 tan: 'tan' '('expr')';
 cot: 'cot' '(' expr')';
-exponent: 'e' POW expr | 'exp' '('expr')';
+exponent: 'e' pow expr | 'exp' '('expr')';
 sqrt: 'sqrt' '('expr')';
 abs: 'abs' '('expr')';
 acos: 'acos' '(' expr ')';
@@ -60,15 +69,8 @@ log: 'log' '_' '{' INT '}' '^' '{' INT '}';
 /*
  * Lexer Rules
  */
-
-VAR : [xt];
+VAR: [x,t];
 fragment INT: [0-9]+;
 fragment FLOAT: INT+ ([.,] INT+)?;
-MUL: '*';
-DIV: '/';
-ADD: '+';
-SUB: '-';
-VALUE: INT | FLOAT | PI;
 fragment PI: '\u03C0'|'pi';
-POW: '^';
 WHITESPACE          : (' '|'\t'|'\r'|'\n')+ -> skip ;

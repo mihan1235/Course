@@ -61,6 +61,66 @@ public interface IfunctionListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitSkip([NotNull] functionParser.SkipContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.mul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMul([NotNull] functionParser.MulContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.mul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMul([NotNull] functionParser.MulContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.div"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDiv([NotNull] functionParser.DivContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.div"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDiv([NotNull] functionParser.DivContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.pow"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterPow([NotNull] functionParser.PowContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.pow"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitPow([NotNull] functionParser.PowContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.add"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAdd([NotNull] functionParser.AddContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.add"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAdd([NotNull] functionParser.AddContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.sub"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterSub([NotNull] functionParser.SubContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.sub"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitSub([NotNull] functionParser.SubContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.value"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterValue([NotNull] functionParser.ValueContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.value"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitValue([NotNull] functionParser.ValueContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="functionParser.math_func"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

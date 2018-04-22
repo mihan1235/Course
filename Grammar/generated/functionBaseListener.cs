@@ -71,6 +71,78 @@ public partial class functionBaseListener : IfunctionListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitSkip([NotNull] functionParser.SkipContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.mul"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterMul([NotNull] functionParser.MulContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.mul"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitMul([NotNull] functionParser.MulContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.div"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDiv([NotNull] functionParser.DivContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.div"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDiv([NotNull] functionParser.DivContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.pow"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPow([NotNull] functionParser.PowContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.pow"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPow([NotNull] functionParser.PowContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.add"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterAdd([NotNull] functionParser.AddContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.add"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitAdd([NotNull] functionParser.AddContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.sub"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterSub([NotNull] functionParser.SubContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.sub"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitSub([NotNull] functionParser.SubContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="functionParser.value"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterValue([NotNull] functionParser.ValueContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="functionParser.value"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitValue([NotNull] functionParser.ValueContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="functionParser.math_func"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
