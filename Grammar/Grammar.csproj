@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="functionVisitor.cs" />
     <Compile Include="generated\functionBaseListener.cs" />
     <Compile Include="generated\functionLexer.cs" />
     <Compile Include="generated\functionListener.cs" />
     <Compile Include="generated\functionParser.cs" />
+    <Compile Include="grammar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

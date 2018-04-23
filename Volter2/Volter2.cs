@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace Volter2
 {
-    public class VolterII
+    public interface ISetTimeRange
+    {
+        void SetTimeRange(double a, double b);
+    }
+
+    public interface IGridSpacing
+    {
+        double GridSpacing
+        {
+            get;
+            set;
+        }
+    }
+
+    public class VolterII: ISetTimeRange, IGridSpacing
     {
         double h = 0.02f;
         public double GridSpacing
