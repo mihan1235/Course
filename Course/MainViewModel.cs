@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Series;
-using Volter2;
+//using Volter2;
 
 namespace Course
 {
@@ -22,18 +22,18 @@ namespace Course
 
             this.MyModel.Series.Add(new FunctionSeries(g_t_exact, 0, 5, 1.0, "g(t) = t - t^2/2"));
             
-            VolterII integral = new VolterII();
-            integral.GridSpacing = 0.01;
-            integral.SetTimeRange(0, 5);
-            var ans = integral.Solve();
+            //VolterII integral = new VolterII();
+            //integral.GridSpacing = 0.01;
+            //integral.SetTimeRange(0, 5);
+            //var ans = integral.Solve();
 
-            LineSeries LineSeries1 = new LineSeries();
-            for(int i =0; i<ans.g.Count;i++)
-            {
-                LineSeries1.Points.Add(new DataPoint(ans.t[i],ans.g.ElementAt(i)));
-            }
-            LineSeries1.Title = "ans";
-            this.MyModel.Series.Add(LineSeries1);
+            //LineSeries LineSeries1 = new LineSeries();
+            //for(int i =0; i<ans.g.Count;i++)
+            //{
+            //    LineSeries1.Points.Add(new DataPoint(ans.t[i],ans.g.ElementAt(i)));
+            //}
+            //LineSeries1.Title = "ans";
+            //this.MyModel.Series.Add(LineSeries1);
 
         }
 

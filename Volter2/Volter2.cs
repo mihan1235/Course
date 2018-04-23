@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Volter2
 {
-    public class Volter2
+    public class VolterII
     {
         double h = 0.02f;
         public double GridSpacing
