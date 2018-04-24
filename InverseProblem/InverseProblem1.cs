@@ -12,7 +12,7 @@ using static Integral.Int;
 
 namespace InverseProblem
 {
-    public class InverseProblem
+    public class InverseProblem1
     {
         double h;
         public double GridSpacing
@@ -136,7 +136,7 @@ namespace InverseProblem
 
         VolterII volter_int = new VolterII();
 
-        public void Solve(out List<double> g, double[] t_arr)
+        public void Solve(out List<double> g, out double[] t_arr)
         {
             volter_int.F = (t) => SecondDerivative(p_1,t,h) / F(X0);
             volter_int.Lambda = 1 / 2 * F(X0);
