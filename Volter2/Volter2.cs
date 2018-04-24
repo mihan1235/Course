@@ -67,7 +67,7 @@ namespace Volter2
         }
 
 
-        public void Solve(out List<double> g, double[] t)
+        public void Solve(out List<double> g, out double[] t)
         {
             g = new List<double>();
             t = new double[(int)((b - a) / h + 1)];

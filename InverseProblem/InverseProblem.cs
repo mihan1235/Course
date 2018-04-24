@@ -24,6 +24,7 @@ namespace InverseProblem
             set
             {
                 h = value;
+                volter_int.GridSpacing = h;
             }
         }
 
@@ -39,6 +40,7 @@ namespace InverseProblem
             set
             {
                 t0 = value;
+                volter_int.SetTimeRange(t0, t1);                
             }
         }
 
@@ -51,6 +53,7 @@ namespace InverseProblem
             set
             {
                 t1 = value;
+                volter_int.SetTimeRange(t0, t1);                
             }
         }
 
@@ -133,11 +136,13 @@ namespace InverseProblem
 
         VolterII volter_int = new VolterII();
 
-        public void Solve(out List<double> g, double[] t)
+        public void Solve(out List<double> g, double[] t_arr)
         {
-            
-
-            throw (new NotImplementedException());
+            volter_int.F = (t) => SecondDerivative(p_1,t,h) / F(X0);
+            volter_int.Lambda = 1 / 2 * F(X0);
+            volter_int.K = (t, tau) => FirstDerivative(F,X0 + A *(t - tau),h) * A
+                           - FirstDerivative(F, X0 - A * (t - tau), h) * A;
+            volter_int.Solve(out g, out t_arr);
         }
     }        
 }
