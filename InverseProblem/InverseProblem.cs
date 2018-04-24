@@ -5,28 +5,65 @@ using System.Text;
 using System.Threading.Tasks;
 using Grammar;
 using Volter2;
+using Integral;
+using NumericalDerivative;
+using static NumericalDerivative.Derivative;
+using static Integral.Int;
 
 namespace InverseProblem
 {
-    public class InverseProblem : ISetTimeRange, IGridSpacing
+    public class InverseProblem
     {
-        VolterII integral = new VolterII();
-
+        double h;
         public double GridSpacing
         {
             get
             {
-                return integral.GridSpacing;
+                return h;
             }
             set
             {
-                integral.GridSpacing = value;
+                h = value;
             }
         }
 
-        public void SetTimeRange(double a, double b)
+        double t0;
+        double t1;
+
+        public double T0
         {
-            integral.SetTimeRange(a, b);
+            get
+            {
+                return t0;
+            }
+            set
+            {
+                t0 = value;
+            }
+        }
+
+        public double T1
+        {
+            get
+            {
+                return t1;
+            }
+            set
+            {
+                t1 = value;
+            }
+        }
+
+        public double X0
+        {
+            get;
+            set;
+        }
+
+        public double A
+        {
+            get;
+            set;
         }
 
         FunctionGrammar FX = new FunctionGrammar();
@@ -72,5 +109,35 @@ namespace InverseProblem
             return PsiX.Func(x);
         }
 
+        FunctionGrammar PT = new FunctionGrammar();
+
+        public string PInpit
+        {
+            set
+            {
+                PT.Input = value;
+            }
+        }
+
+        public double P(double t)
+        {
+            return PT.Func(t);
+        }
+
+        double p_1(double t)
+        {
+            double ans = P(t) - (Phi(X0 + A * t) + Phi(X0 - A * t)) / 2;
+            ans -= 1 / (2 * A) * Integrate(Psi,X0 - A*t, X0 + A*t,h);
+            return ans;
+        }
+
+        VolterII volter_int = new VolterII();
+
+        public void Solve(out List<double> g, double[] t)
+        {
+            
+
+            throw (new NotImplementedException());
+        }
     }        
 }

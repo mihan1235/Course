@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55CFED09-8CE8-4BA6-AA79-62CDB9996C79}</ProjectGuid>
+    <ProjectGuid>{1D64E8A1-ED27-464C-98B9-E92B93F2B56B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InverseProblem</RootNamespace>
-    <AssemblyName>InverseProblem</AssemblyName>
+    <RootNamespace>NumericalDerivative</RootNamespace>
+    <AssemblyName>NumericalDerivative</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,26 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InverseProblem.cs" />
+    <Compile Include="Derivative.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Grammar\Grammar.csproj">
-      <Project>{d2923984-59c7-43d6-8009-33442f87bdc6}</Project>
-      <Name>Grammar</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Integral\Integral.csproj">
-      <Project>{737e129b-949c-4563-a204-5c16a46802e8}</Project>
-      <Name>Integral</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NumericalDerivative\NumericalDerivative.csproj">
-      <Project>{1d64e8a1-ed27-464c-98b9-e92b93f2b56b}</Project>
-      <Name>NumericalDerivative</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Volter2\Volter2.csproj">
-      <Project>{6ff8949b-df1b-473c-a0ae-f72fc43293e3}</Project>
-      <Name>Volter2</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

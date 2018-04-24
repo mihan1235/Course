@@ -28,29 +28,66 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" VerticalAlignment="Center" >
-                <Border Margin="12,30,12,30" BorderThickness="1" BorderBrush="SteelBlue" 
-                    CornerRadius="4" MinWidth="200" >
-                    <DockPanel >
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="200" HorizontalAlignment="Left" >
+                    <DockPanel Margin="2">
                         <Label Content="&#966;(x):"></Label>
                         <TextBox MinWidth="200"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,30,12,30" BorderThickness="1" BorderBrush="SteelBlue" 
-                    CornerRadius="4" MinWidth="200" >
-                    <DockPanel >
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="200" HorizontalAlignment="Left">
+                    <DockPanel Margin="2">
                         <Label Content="&#968;(x):"></Label>
                         <TextBox MinWidth="200"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,30,12,30" BorderThickness="1" BorderBrush="SteelBlue" 
-                    CornerRadius="4" MinWidth="200" >
-                    <DockPanel >
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="200" HorizontalAlignment="Left" >
+                    <DockPanel Margin="2">
                         <Label Content="f(x):"></Label>
                         <TextBox MinWidth="200"></TextBox>
                     </DockPanel>
                 </Border>
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="200" HorizontalAlignment="Left" >
+                    <DockPanel Margin="2">
+                        <Label Content="U(x_0,t) = p(t):"></Label>
+                        <TextBox MinWidth="200"></TextBox>
+                    </DockPanel>
+                </Border>
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="40" HorizontalAlignment="Left">
+                    <DockPanel Margin="2" >
+                        <Label Content="x_0:"></Label>
+                        <TextBox MinWidth="30"></TextBox>
+                    </DockPanel>
+                </Border>
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="40" HorizontalAlignment="Left">
+                    <DockPanel Margin="2" >
+                        <Label Content="a:"></Label>
+                        <TextBox MinWidth="30"></TextBox>
+                    </DockPanel>
+                </Border>
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="100" HorizontalAlignment="Left" >
+                    <DockPanel Margin="2" >
+                        <Label Content="t: from"></Label>
+                        <TextBox MinWidth="50"></TextBox>
+                        <Label Content="t: to"></Label>
+                        <TextBox MinWidth="50"></TextBox>
+                    </DockPanel>
+                </Border>
+                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                    CornerRadius="4" MinWidth="60" HorizontalAlignment="Left" >
+                    <DockPanel Margin="2">
+                        <Label Content="GridSpace: "></Label>
+                        <TextBox MinWidth="50"></TextBox>
+                    </DockPanel>
+                </Border>
             </StackPanel>
-            <Button Grid.Row="1" Content="Count" Margin="12" ></Button>
+            <Button Grid.Row="1" Content="Count" Margin="12" HorizontalAlignment="Center" ></Button>
         </Grid>
         <!--<TextBlock Grid.Column="0" Text="sfdfsdf"></TextBlock>-->
         <!--<TextBlock Grid.Column="1" Text="fvvfvfv"></TextBlock>-->

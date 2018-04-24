@@ -6,21 +6,8 @@ using System.Threading.Tasks;
 
 namespace Volter2
 {
-    public interface ISetTimeRange
-    {
-        void SetTimeRange(double a, double b);
-    }
 
-    public interface IGridSpacing
-    {
-        double GridSpacing
-        {
-            get;
-            set;
-        }
-    }
-
-    public class VolterII: ISetTimeRange, IGridSpacing
+    public class VolterII
     {
         double h = 0.02f;
         public double GridSpacing
@@ -65,6 +52,20 @@ namespace Volter2
 
         int num;
 
+        double lambda = 1;
+
+        public double Lambda
+        {
+            get
+            {
+                return lambda;
+            }
+            set
+            {
+                lambda = value;
+            }
+        }
+
 
         public void Solve(out List<double> g, double[] t)
         {
@@ -98,7 +99,7 @@ namespace Volter2
                 {
                     sum = sum + K(t[i], t[k]) * g.ElementAt(k) * h;
                 }
-                double last_y = F(t[i]) - sum;
+                double last_y = F(t[i]) - lambda * sum;
                 g.Add(last_y);
             }
         }
