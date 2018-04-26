@@ -18,7 +18,7 @@ namespace Integral
         public static double Integrate(tf f, double a, double b, double h)
         {
             //h = Math.Pow(h,3);
-            h = h*h/100;
+            //h = h*h/100;
             //Trapezoid method
             //Kotesa formula
             //int_a^b f(x) dx = h((f_0 + f_n)/2 + \sum_{i=1}^{n-1} f_i)

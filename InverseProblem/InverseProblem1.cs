@@ -127,18 +127,29 @@ namespace InverseProblem
             return PT.Func(t);
         }
 
-        double p_1(double t)
-        {
-            double ans = P(t) - (Phi(X0 + A * t) + Phi(X0 - A * t)) / 2;
-            ans -= 1 / (2 * A) * Integrate(Psi,X0 - A*t, X0 + A*t,h);
-            return ans;
-        }
+        //double p_1(double t)
+        //{
+        //    double ans = P(t) - (Phi(X0 + A * t) + Phi(X0 - A * t)) / 2;
+        //    ans -= 1 / (2 * A) * Integrate(Psi,X0 - A*t, X0 + A*t, h * h / 2);
+        //    return ans;
+        //}
 
         VolterII volter_int = new VolterII();
 
+        double p_2(double t)
+        {
+            double ans = SecondDerivative(P, t, h);
+            ans -= (SecondDerivative(Phi, X0 + A * t,h)*Math.Pow(A,2)
+                + Math.Pow(A, 2)* SecondDerivative(Phi, X0 - A * t, h)) / 2;
+            ans -= 1 / (2 * A) * (FirstDerivative(Psi,X0+A*t,h) * Math.Pow(A, 2)
+                - Math.Pow(A, 2) * FirstDerivative(Psi, X0 - A * t, h));
+            return ans;
+        }
+
         public void Solve(out List<double> g, out double[] t_arr)
         {
-            volter_int.F = (t) => SecondDerivative(p_1,t,h) / F(X0);
+            //volter_int.F = (t) => SecondDerivative(p_1,t,h) / F(X0);
+            volter_int.F = (t) => p_2(t) / F(X0);
             volter_int.Lambda = 1 / 2 * F(X0);
             volter_int.K = (t, tau) => FirstDerivative(F,X0 + A *(t - tau),h) * A
                            - FirstDerivative(F, X0 - A * (t - tau), h) * A;
