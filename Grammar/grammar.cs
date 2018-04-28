@@ -5,20 +5,60 @@ using System.Text;
 using System.Threading.Tasks;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
+using System.IO;
 
 namespace Grammar
 {
-    public class FunctionGrammar
+    
+
+    public class FunctionGrammar 
     {
         AntlrInputStream input = null;
         functionLexer lexer;
         CommonTokenStream tokens;
         functionParser parser;
 
+        FunctionErrorListner error_listner = new FunctionErrorListner();
+
+        public bool IsError {
+            get
+            {
+                return error_listner.IsError;
+            }
+            set
+            {
+                error_listner.IsError = value;
+            }
+        }
+
+        public string SyntaxErrorMsg
+        {
+            get
+            {
+                return error_listner.SyntaxErrorMsg;
+            }
+            set
+            {
+                error_listner.SyntaxErrorMsg = value;
+            }
+        }
+
+        public string LexerErrorMsg
+        {
+            get
+            {
+                return error_listner.LexerErrorMsg;
+            }
+            set
+            {
+                error_listner.LexerErrorMsg = value;
+            }
+        }
+
         string input_str;
         public string Input
         {
-            private get
+            get
             {
                 return input_str;
             }
@@ -33,6 +73,11 @@ namespace Grammar
                 tokens = new CommonTokenStream(lexer);
                 // Создаем парсер
                 parser = new functionParser(tokens);
+                parser.RemoveErrorListeners(); // remove ConsoleErrorListener
+                parser.AddErrorListener(error_listner); // add ours
+                lexer.RemoveErrorListeners();
+                lexer.AddErrorListener(error_listner);
+                IsError = false;
             }
         }
 

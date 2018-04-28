@@ -31,13 +31,13 @@ namespace Course
             OnPropertyChanged("MyModel");
         }
 
-        public void TestModel(Func<double, double> g_t_exact)
-        {
-            //Func<double, double>  = (t) => t - Math.Pow(t, 2) / 2;
-            this.MyModel = new PlotModel { Title = "Inverse Problem" };
-            this.MyModel.Series.Add(new FunctionSeries(g_t_exact, 0, 5, 0.01, "g(t) test"));
-            OnPropertyChanged("MyModel");
-        }
+        //public void TestModel(Func<double, double> g_t_exact)
+        //{
+        //    //Func<double, double>  = (t) => t - Math.Pow(t, 2) / 2;
+        //    this.MyModel = new PlotModel { Title = "Inverse Problem" };
+        //    this.MyModel.Series.Add(new FunctionSeries(g_t_exact, 0, 5, 0.01, "g(t) test"));
+        //    OnPropertyChanged("MyModel");
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")

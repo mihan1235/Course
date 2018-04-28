@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Course"
         xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:lib="clr-namespace:InverseProblem;assembly=InverseProblem"
         mc:Ignorable="d"
         Title="MainWindow" Height="586" Width="910">
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <lib:InverseProblem1 x:Key="InverseProblem1"></lib:InverseProblem1>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

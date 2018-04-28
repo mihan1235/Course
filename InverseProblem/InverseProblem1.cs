@@ -75,6 +75,10 @@ namespace InverseProblem
 
         public string FInpit
         {
+            get
+            {
+                return FX.Input;
+            }
             set
             {
                 FX.Input = value;
@@ -88,6 +92,10 @@ namespace InverseProblem
 
         public string PhiInpit
         {
+            get
+            {
+                return PhiX.Input;
+            }
             set
             {
                 PhiX.Input = value;
@@ -101,6 +109,10 @@ namespace InverseProblem
 
         public string PsiInpit
         {
+            get
+            {
+                return PsiX.Input;
+            }
             set
             {
                 PsiX.Input = value;
@@ -116,6 +128,10 @@ namespace InverseProblem
 
         public string PInpit
         {
+            get
+            {
+                return PT.Input;
+            }
             set
             {
                 PT.Input = value;

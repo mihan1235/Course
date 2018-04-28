@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FunctionErrorListner.cs" />
     <Compile Include="generated\functionBaseListener.cs" />
     <Compile Include="generated\functionLexer.cs" />
     <Compile Include="generated\functionListener.cs" />
