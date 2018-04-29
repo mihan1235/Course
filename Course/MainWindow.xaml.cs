@@ -35,6 +35,41 @@ namespace Course
                 return true;
             }
 
+            if (Validation.GetHasError(PsiX))
+            {
+                return true;
+            }
+
+            if (Validation.GetHasError(FX))
+            {
+                return true;
+            }
+
+            if (Validation.GetHasError(PT))
+            {
+                return true;
+            }
+
+            if (Validation.GetHasError(x0))
+            {
+                return true;
+            }
+
+            if (Validation.GetHasError(a))
+            {
+                return true;
+            }
+
+            if (Validation.GetHasError(t0))
+            {
+                return true;
+            }
+
+            if (Validation.GetHasError(t1))
+            {
+                return true;
+            }
+
             if (Validation.GetHasError(GridSpaceText))
             {
                 return true;
@@ -46,9 +81,9 @@ namespace Course
         {
             var task = (InverseProblem1)this.FindResource("InverseProblem1");
             //task.PhiInpit = PhiX.Text;
-            task.PsiInpit = PsiX.Text;
-            task.FInpit = FX.Text;
-            task.PInpit = PT.Text;
+            //task.PsiInpit = PsiX.Text;
+            //task.FInpit = FX.Text;
+            //task.PInpit = PT.Text;
             //task.X0 = double.Parse(x0.Text);
             //task.A = double.Parse(a.Text);
             //task.T0 = double.Parse(t0.Text);

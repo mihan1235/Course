@@ -74,6 +74,45 @@ namespace InverseProblem
                             add_msg(PhiX.SyntaxErrorMsg);
                         }
                         break;
+                    case "PsiInpit":
+                        if (PsiInpit == null)
+                        {
+                            add_msg("Psi input must not be empty");
+                            break;
+                        }
+
+                        if (PsiX.IsError)
+                        {
+                            add_msg(PsiX.LexerErrorMsg);
+                            add_msg(PsiX.SyntaxErrorMsg);
+                        }
+                        break;
+                    case "FInpit":
+                        if (FInpit == null)
+                        {
+                            add_msg("f(x) input must not be empty");
+                            break;
+                        }
+
+                        if (FX.IsError)
+                        {
+                            add_msg(FX.LexerErrorMsg);
+                            add_msg(FX.SyntaxErrorMsg);
+                        }
+                        break;
+                    case "PInpit":
+                        if (PInpit == null)
+                        {
+                            add_msg("p(t) input must not be empty");
+                            break;
+                        }
+
+                        if (PT.IsError)
+                        {
+                            add_msg(PT.LexerErrorMsg);
+                            add_msg(PT.SyntaxErrorMsg);
+                        }
+                        break;
                     default:
                         break;
                 }
