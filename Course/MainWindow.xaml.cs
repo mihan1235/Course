@@ -28,6 +28,15 @@ namespace Course
             InitializeComponent();
         }
 
+        bool CheckForErrors()
+        {
+            if (Validation.GetHasError(GridSpaceText))
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void CountButton_Click(object sender, RoutedEventArgs e)
         {
             var task = (InverseProblem1)this.FindResource("InverseProblem1");
@@ -35,17 +44,19 @@ namespace Course
             task.PsiInpit = PsiX.Text;
             task.FInpit = FX.Text;
             task.PInpit = PT.Text;
-            task.X0 = double.Parse(x0.Text);
-            task.A = double.Parse(a.Text);
-            task.T0 = double.Parse(t0.Text);
-            task.T1 = double.Parse(t1.Text);
-            task.GridSpacing = double.Parse(GridSpace.Text);
-            List<double> g;
-            double[] t;
-            task.Solve(out g, out t);
-            var Model = (MainViewModel)this.DataContext;
-            Model.UpdateModel(g,t);
-            //Model.TestModel(task.Phi);
+            //task.X0 = double.Parse(x0.Text);
+            //task.A = double.Parse(a.Text);
+            //task.T0 = double.Parse(t0.Text);
+            //task.T1 = double.Parse(t1.Text);
+            //task.GridSpacing = double.Parse(GridSpace.Text);
+            if (CheckForErrors() == false)
+            {
+                List<double> g;
+                double[] t;
+                task.Solve(out g, out t);
+                var Model = (MainViewModel)this.DataContext;
+                Model.UpdateModel(g, t);
+            }
         }
     }
 }

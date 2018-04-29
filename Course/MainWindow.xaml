@@ -7,7 +7,7 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:lib="clr-namespace:InverseProblem;assembly=InverseProblem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="586" Width="910">
+        Title="MainWindow" Height="599" Width="910">
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
@@ -32,70 +32,95 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" VerticalAlignment="Center" >
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="200" HorizontalAlignment="Left" >
                     <DockPanel Margin="2">
                         <Label Content="&#966;(x):"></Label>
                         <TextBox Name ="PhiX" MinWidth="200"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Label Content="ddddd" Margin="2" Foreground="Red"></Label>
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="200" HorizontalAlignment="Left">
                     <DockPanel Margin="2">
                         <Label Content="&#968;(x):"></Label>
                         <TextBox Name="PsiX" MinWidth="200"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Label Content="ddddd" Margin="2" Foreground="Red"></Label>
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="200" HorizontalAlignment="Left" >
                     <DockPanel Margin="2">
                         <Label Content="f(x):"></Label>
                         <TextBox Name="FX" MinWidth="200"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Label Content="ddddd" Margin="2" Foreground="Red"></Label>
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="200" HorizontalAlignment="Left" >
                     <DockPanel Margin="2">
                         <Label Content="U(x_0,t) = p(t):"></Label>
                         <TextBox Name="PT" MinWidth="200"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Label Content="ddddd" Margin="2" Foreground="Red"></Label>
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="40" HorizontalAlignment="Left">
                     <DockPanel Margin="2" >
                         <Label Content="x_0:"></Label>
-                        <TextBox Name ="x0" MinWidth="30"></TextBox>
+                        <TextBox Name ="x0" MinWidth="30"
+                                 Text="{Binding Source={StaticResource InverseProblem1},Path=X0}"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Label Content="ddddd" Margin="2" Foreground="Red"></Label>
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="40" HorizontalAlignment="Left">
                     <DockPanel Margin="2" >
                         <Label Content="a:"></Label>
-                        <TextBox Name ="a" MinWidth="30"></TextBox>
+                        <TextBox Name ="a" MinWidth="30"
+                                 Text="{Binding Source={StaticResource InverseProblem1},Path=A}"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Label Content="ddddd" Margin="2" Foreground="Red"></Label>
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="100" HorizontalAlignment="Left" >
                     <DockPanel Margin="2" >
                         <Label Content="t: from"></Label>
-                        <TextBox Name="t0" MinWidth="50"></TextBox>
+                        <TextBox Name="t0" MinWidth="50" 
+                                 Text="{Binding Source={StaticResource InverseProblem1},Path=T0}"></TextBox>
                         <Label Content="t: to"></Label>
-                        <TextBox Name="t1" MinWidth="50"></TextBox>
+                        <TextBox Name="t1" MinWidth="50"
+                                 Text="{Binding Source={StaticResource InverseProblem1},Path=T1}"></TextBox>
                     </DockPanel>
                 </Border>
-                <Border Margin="12,15,12,15" BorderThickness="1" BorderBrush="SteelBlue" 
+                <Label Content="ddddd" Margin="2" Foreground="Red"></Label>
+                <Border Margin="12,1,1,1" BorderThickness="1" BorderBrush="SteelBlue" 
                     CornerRadius="4" MinWidth="60" HorizontalAlignment="Left" >
-                    <DockPanel Margin="2">
+                    <DockPanel Margin="12,2">
                         <Label Content="GridSpace: "></Label>
-                        <TextBox Name="GridSpace" MinWidth="50"/>
+                        <TextBox Name="GridSpaceText" 
+                                 MinWidth="50">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource InverseProblem1}"
+                                         Path="GridSpacing"
+                                         NotifyOnValidationError="True">
+                                    <Binding.ValidationRules>
+                                        <local:PositiveDoubleRule/>
+                                        <ExceptionValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
                     </DockPanel>
                 </Border>
+                <Label Name="GridSpaceErrorLabel" 
+                       Margin="2"
+                       Foreground="Red"
+                       Content="{Binding ElementName=GridSpaceText, Path=(Validation.Errors)[0].ErrorContent}"></Label>
             </StackPanel>
             <Button Grid.Row="1" Content="Count" Margin="12" HorizontalAlignment="Center"
                     Name="CountButton" Click="CountButton_Click"></Button>
         </Grid>
-        <!--<TextBlock Grid.Column="0" Text="sfdfsdf"></TextBlock>-->
-        <!--<TextBlock Grid.Column="1" Text="fvvfvfv"></TextBlock>-->
-
     </Grid>
 </Window>
