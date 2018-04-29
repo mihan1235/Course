@@ -14,9 +14,9 @@ namespace Grammar
     public class FunctionGrammar 
     {
         AntlrInputStream input = null;
-        functionLexer lexer;
-        CommonTokenStream tokens;
-        functionParser parser;
+        functionLexer lexer = null;
+        CommonTokenStream tokens = null;
+        functionParser parser = null;
 
         FunctionErrorListner error_listner = new FunctionErrorListner();
 
@@ -56,7 +56,7 @@ namespace Grammar
             }
         }
 
-        string input_str ="";
+        string input_str=" ";
         public string Input
         {
             get
@@ -81,6 +81,7 @@ namespace Grammar
                 IsError = false;
                 SyntaxErrorMsg = null;
                 LexerErrorMsg = null;
+                
             }
         }
 
@@ -92,10 +93,14 @@ namespace Grammar
             }
 
             // И запускаем первое правило грамматики!!!
-            parser.Reset();
-            parser.Var = x;
-            parser.function();
-            return parser.Ans;
+            if (parser != null)
+            {
+                parser.Reset();
+                parser.Var = x;
+                parser.function();
+                return parser.Ans;
+            }
+            return 0;
         }
     }
 }

@@ -91,6 +91,7 @@ namespace Course
             //task.GridSpacing = double.Parse(GridSpace.Text);
             if (CheckForErrors() == false)
             {
+                MessageBox.Show("Solving");
                 List<double> g;
                 double[] t;
                 task.Solve(out g, out t);
