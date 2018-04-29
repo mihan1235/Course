@@ -30,6 +30,11 @@ namespace Course
 
         bool CheckForErrors()
         {
+            if (Validation.GetHasError(PhiX))
+            {
+                return true;
+            }
+
             if (Validation.GetHasError(GridSpaceText))
             {
                 return true;
@@ -40,7 +45,7 @@ namespace Course
         private void CountButton_Click(object sender, RoutedEventArgs e)
         {
             var task = (InverseProblem1)this.FindResource("InverseProblem1");
-            task.PhiInpit = PhiX.Text;
+            //task.PhiInpit = PhiX.Text;
             task.PsiInpit = PsiX.Text;
             task.FInpit = FX.Text;
             task.PInpit = PT.Text;

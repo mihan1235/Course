@@ -9,12 +9,79 @@ using Integral;
 using NumericalDerivative;
 using static NumericalDerivative.Derivative;
 using static Integral.Int;
+using System.ComponentModel;
 
 namespace InverseProblem
 {
-    public class InverseProblem1
+    public class InverseProblem1: IDataErrorInfo
     {
-        double h;
+        public string Error { get { return "Error Text"; } }
+        public string this[string property]
+        {
+            get
+            {
+                string msg = null;
+                void add_msg(string added_msg)
+                {
+                    if (added_msg != null)
+                    {
+                        if (msg != null)
+                        {
+                            msg += '\n' + added_msg;
+                        }
+                        else
+                        {
+                            msg = added_msg;
+                        }
+                    }
+                    
+                }
+                
+                switch (property)
+                {
+                    case "T0":
+                        if (T0 > T1)
+                        {
+                            add_msg("t0 must be less then t1");
+                        }
+                        if (T0 < 0)
+                        {
+                            add_msg("t0 must be positive");
+                        }   
+                        break;
+                    case "T1":
+                        if (T1 < 0)
+                        {
+                            add_msg("t1 must be positive");
+                        }
+                        break;
+                    case "GridSpacing":
+                        if (GridSpacing <= 0)
+                        {
+                            add_msg("Grid spacing must be greater then 0");
+                        }
+                        break;
+                    case "PhiInpit":
+                        if (PhiInpit == null)
+                        {
+                            add_msg("Phi input must not be empty");
+                            break;
+                        }
+
+                        if (PhiX.IsError)
+                        {
+                            add_msg(PhiX.LexerErrorMsg);
+                            add_msg(PhiX.SyntaxErrorMsg);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                return msg;
+            }
+        }
+
+        double h=0.01;
         public double GridSpacing
         {
             get

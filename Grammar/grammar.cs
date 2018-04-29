@@ -23,6 +23,7 @@ namespace Grammar
         public bool IsError {
             get
             {
+                parser.function();
                 return error_listner.IsError;
             }
             set
@@ -55,7 +56,7 @@ namespace Grammar
             }
         }
 
-        string input_str;
+        string input_str ="";
         public string Input
         {
             get
@@ -78,6 +79,8 @@ namespace Grammar
                 lexer.RemoveErrorListeners();
                 lexer.AddErrorListener(error_listner);
                 IsError = false;
+                SyntaxErrorMsg = null;
+                LexerErrorMsg = null;
             }
         }
 
